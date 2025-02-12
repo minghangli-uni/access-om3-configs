@@ -1,0 +1,21 @@
+#!/bin/bash
+#PBS -N MOM6_test
+#PBS -P tm70 
+#PBS -q normal
+#PBS -l walltime=02:00:00
+#PBS -l ncpus=192
+#PBS -l mem=768GB
+#PBS -l jobfs=10GB 
+#PBS -l storage=gdata/vk83+scratch/vk83+gdata/tm70+scratch/tm70 
+#PBS -l wd
+#PBS -V
+module purge
+
+module use /g/data/tm70/ml0072/COMMON/git_repos/spack/0.22/release/modules/linux-rocky8-x86_64/
+module load access-mom6_can_delete/2025.02.0 openmpi/4.1.7
+
+#MOM_EXEC=/g/data/tm70/ml0072/COMMON/git_repos/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-mom6_can_delete-2025.02.0-gpx5avaxaypbzw4lsvkq7rky4b3m2ytf/bin/mom6
+
+MOM_EXEC=/g/data/tm70/ml0072/COMMON/git_repos/spack/0.22/release/linux-rocky8-x86_64/intel-2021.10.0/access-mom6_can_delete-2025.02.0-ey6tk4u6z6ye5f63wsn56wud2m5n7kbd/bin/mom6 # update to openmpi 4.1.7 and fms 2024.03
+
+mpirun -n $PBS_NCPUS $MOM_EXEC > mom6.out 2> mom6.err
