@@ -51,11 +51,12 @@ userscripts:
 #   - nco/5.0.5
 
 modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2025.01.0
-        - nco/5.0.5
+  use: 
+    - /g/data/tm70/ml0072/COMMON/git_repos/spack/0.22/release/modules/linux-rocky8-x86_64
+  load:
+   - access-om3-bug-fix/2025.01.0
 
 payu_minimum_version: 1.1.6
 restart_freq: 1
+
+restart: /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/EM_new_structure/product1_0.25deg_new_topo_ezhil_update/epbl_Reichl_2024_2/archive/restart006

@@ -488,3 +488,4 @@ BACKSCATTER_UNDERBOUND = False   !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.                                 
+VERTEX_SHEAR_VISCOSITY_BUG = False
