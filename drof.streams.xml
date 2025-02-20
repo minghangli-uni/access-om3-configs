@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DROF xml file provides river runoff data</File_type>
@@ -7,9 +7,9 @@
   </metadata>
   <stream_info name="JRA55do.FRIVER">
     <taxmode>cycle</taxmode>
-    <tintalgo>upper</tintalgo>
+    <tintalgo>lower</tintalgo>
     <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
+    <mapalgo>consd</mapalgo>
     <dtlimit>3.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
@@ -27,9 +27,9 @@
   </stream_info>
   <stream_info name="JRA55do.LICALVF">
     <taxmode>cycle</taxmode>
-    <tintalgo>upper</tintalgo>
+    <tintalgo>lower</tintalgo>
     <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
+    <mapalgo>consd</mapalgo>
     <dtlimit>3.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>

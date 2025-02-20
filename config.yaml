@@ -13,34 +13,42 @@ ncpus: 1440
 jobfs: 10GB
 mem: 5760GB
 
-walltime: 24:00:00
-jobname: 025deg_jra55do_ryf
+walltime: 10:00:00
+jobname: epbl_Reichl_2024
 
 model: access-om3
 
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-nomask-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.025deg/2023.05.15/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2020.05.30/ocean_hgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2024.04.04/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2020.10.22/ocean_temp_salt.res.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2020.05.30/salt_sfc_restore.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.025deg/2024.05.14/grid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.025deg/2024.05.14/kmt.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data
- 
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/access-om2-025deg-ESMFmesh.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/access-om2-025deg-nomask-ESMFmesh.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/topog.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/ocean_hgrid.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/ocean_vgrid.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/ocean_temp_salt.res.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/salt_sfc_restore.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/grid.nc
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/New_grid_input_files_025deg_75zlevels/kmt.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+- /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
+- /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/expts_manager/EM_new_structure/rof_remap_weights.nc
+
 collate: false
 runlog: false
-metadata: 
-    enable: false
+metadata:
+  enable: true
 
 userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+  setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+  archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+
+# modules:
+#   use:
+#   - /g/data/vk83/prerelease/modules
+#   load:                                                                                                                                                                                                                                                                                                                                                                                         
+#   - access-om3/pr42-2
+#   - nco/5.0.5
 
 modules:
     use:
@@ -50,3 +58,4 @@ modules:
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
+restart_freq: 1
