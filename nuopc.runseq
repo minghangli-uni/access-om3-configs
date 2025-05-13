@@ -11,7 +11,6 @@ runSeq::
     MED -> ICE :remapMethod=redist
     ICE
     ROF
-    ROF -> MED :remapMethod=redist
     OCN -> MED :remapMethod=redist
     MED med_phases_post_ocn
     MED med_phases_diag_rof
@@ -23,6 +22,7 @@ runSeq::
     MED med_phases_post_atm
     MED med_phases_diag_atm
     MED med_phases_diag_ice_med2ice
+    ROF -> MED :remapMethod=redist
     MED med_phases_post_rof
     MED med_phases_diag_accum
     MED med_phases_diag_print
