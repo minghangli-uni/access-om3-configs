@@ -9,9 +9,9 @@ runSeq::
     OCN
     MED med_phases_prep_ice
     MED -> ICE :remapMethod=redist
+    OCN -> MED :remapMethod=redist
     ICE
     ROF
-    OCN -> MED :remapMethod=redist
     MED med_phases_post_ocn
     MED med_phases_diag_rof
     MED med_phases_diag_ice_ice2med
