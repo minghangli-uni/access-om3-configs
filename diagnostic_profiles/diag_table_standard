@@ -121,6 +121,9 @@ ACCESS-OM3
 "access-om3.mom6.2d.SSH.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "SSH", "SSH", "access-om3.mom6.2d.SSH.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.2d.zos.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "zos", "zos", "access-om3.mom6.2d.zos.1mon.mean.%4yr", "all", "average", "none", 2
+
 "access-om3.mom6.2d.tauuo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "tauuo", "tauuo", "access-om3.mom6.2d.tauuo.1mon.mean.%4yr", "all", "average", "none", 2
 
@@ -171,6 +174,9 @@ ACCESS-OM3
 
 "access-om3.mom6.2d.speed.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.zos.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "zos", "zos", "access-om3.mom6.2d.zos.1day.mean.%4yr", "all", "average", "none", 2
 
 
 # daily scalar timeseries

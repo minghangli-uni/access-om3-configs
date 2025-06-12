@@ -7,14 +7,13 @@
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
-
 queue: normalsr
 ncpus: 1664
 jobfs: 10GB
 mem: 8000GB
 
 walltime: 24:00:00
-jobname: 025km_jra55do_ryf
+jobname: ctrl_25km_0.5
 
 model: access-om3
 
@@ -46,15 +45,15 @@ platform:
 collate:
   restart: true
   mpi: true
-  walltime: 1:00:00
+  walltime: 5:00:00
   mem: 30GB
   ncpus: 4
   queue: normal
   exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 
 userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+    setup: /usr/bin/bash /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/payu_config/setup.sh
+    archive: /usr/bin/bash /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/payu_config/archive.sh
 
 modules:
     use:
@@ -63,4 +62,10 @@ modules:
         - access-om3/2025.05.001
         - nco/5.0.5
 
+env:
+    OMPI_MCA_io: '^ompio'
+
 payu_minimum_version: 1.1.6
+
+restart: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5/archive/restart009
+restart_freq: 1

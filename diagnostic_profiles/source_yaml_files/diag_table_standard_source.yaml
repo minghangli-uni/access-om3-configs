@@ -197,6 +197,7 @@ diag_table:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             speed: # Sea Surface Speed
             SSH: # Sea Surface Height
+            zos: # CMOR Sea Surface Height
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
             umo_2d: # Ocean Mass X Transport Vertical Sum
@@ -232,6 +233,7 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
+            zos: # Sea Surface Height
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
