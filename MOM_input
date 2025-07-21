@@ -72,7 +72,7 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
+!USE_PSURF_IN_EOS = False        !   [Boolean] default = True
                                 ! If true, always include the surface pressure contributions in equation of
                                 ! state calculations.
 CHECK_BAD_SURFACE_VALS = True   !   [Boolean] default = False
@@ -156,15 +156,21 @@ NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+EQN_OF_STATE = "ROQUET_RHO" ! default = "WRIGHT"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
                                 ! "TEOS10".  This is only used if USE_EOS is true.
-DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
-                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
-                                ! temperature with pressure.
-
+! DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
+!                                 ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+!                                 ! temperature with pressure.
+EOS_QUADRATURE = True           !   [Boolean] default = True
+                                ! If true, always use the generic (quadrature) code code for the integrals of
+                                ! density.
+TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
+                                ! TFREEZE_FORM determines which expression should be used for the freezing
+                                ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
+                                ! "TEOS10"
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
@@ -696,7 +702,7 @@ RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! drives sea-surface salinity toward specified values.
 
 ! === module MOM_surface_forcing_nuopc ===
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
+!MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
                                 ! structure does not limit the water that can be frozen out of the ocean and the
@@ -719,7 +725,7 @@ ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
 WIND_STAGGER = "A"              ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the input
                                 ! wind stress field.  Valid values are 'A', 'B', or 'C'.
-ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
+!ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
@@ -730,3 +736,15 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+
+KHTH_USE_FGNV_STREAMFUNCTION = True
+FGNV_FILTER_SCALE = 0.1        
+MEKE_KHTH_FAC = 0.5            
+MEKE_KHTR_FAC = 0.5            
+MEKE_VISCOSITY_COEFF_KU = 1.0  
+KHTH_USE_EBT_STRUCT = True     
+KH_RES_FN_POWER = 100
+KH_VEL_SCALE = 0.01            
+KH_SIN_LAT = 2000.0            
+KHTR = 50                      
+USE_NEUTRAL_DIFFUSION = True   
