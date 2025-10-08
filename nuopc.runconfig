@@ -54,7 +54,7 @@ PELAYOUT_attributes::
      rof_rootpe = 0
 ::
 
-component_list: MED ATM ICE OCN ROF
+component_list: MED ATM ICE ROF
 ALLCOMP_attributes::
      ATM_model = datm
      GLC_model = sglc
